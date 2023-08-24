@@ -10,6 +10,13 @@ app.get('/art', (req, res) => {
     res.json([BOOKS]);
   })
 
+  app.get('/art/:isbn', (req, res) => {
+    const { isbn } = req.params;
+    console.log(req.params);
+
+    res.json(artwork);
+  })
+
 app.listen(port, () => {
     console.log(`API server listening on port ${port}`);
   });
