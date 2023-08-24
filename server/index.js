@@ -13,7 +13,11 @@ app.get('/art', (req, res) => {
   app.get('/art/:isbn', (req, res) => {
     const { isbn } = req.params;
     console.log(req.params);
-
+    
+    const artwork = art.find(artwork => artwork.isbn === isbn);
+  if(!artwork) {
+    res.status(404).send("Sorry, I don't have that piece");
+  }
     res.json(artwork);
   })
 
