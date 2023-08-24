@@ -42,6 +42,10 @@ app.post('/art', (req, res) => {
     res.json(arr);
   })
 
+app.put('/art', (req, res) => {
+    console.log(app.json)
+})
+
 app.all('*', (req, res) => {
     res.status(404).send("Sorry, that's an invalid URL");
 })
