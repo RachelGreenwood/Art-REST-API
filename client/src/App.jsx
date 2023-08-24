@@ -11,6 +11,14 @@ function App() {
   const [medium, setMedium] = useState("");
   const [rec, setRec] = useState("");
 
+  async function fetchData() {
+    //Fetch data from API
+    const response = await fetch("http://localhost:3000/art");
+    const books = await response.json();
+    const booksJSON = JSON.stringify(books, null, 2);
+    console.log(booksJSON);
+  }
+
   return (
     <>
       <div className="App">
