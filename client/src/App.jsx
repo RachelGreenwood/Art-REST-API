@@ -17,6 +17,9 @@ function App() {
     const books = await response.json();
     const booksJSON = JSON.stringify(books, null, 2);
     console.log(booksJSON);
+
+    // Get the specific artwork
+    let random = books.filter(work => work["recommended for"] == input.value);
   }
 
   return (
