@@ -20,6 +20,20 @@ function App() {
 
     // Get the specific artwork
     let random = books.filter(work => work["recommended for"] == input.value);
+
+    //Set the state to be the selected artwork based on input name
+    let newTitle = random[0].title;
+    let newArtist = random[0].artist;
+    let newPicture = random[0].picture;
+    let newDate = random[0].date;
+    let newMedium = random[0].medium;
+    let newRec = "Recommendation for: " + random[0]["recommended for"]
+    setTitle(newTitle);
+    setArtist(newArtist);
+    setPicture(newPicture);
+    setDate(newDate);
+    setMedium(newMedium);
+    setRec(newRec);
   }
 
   return (
