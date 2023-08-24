@@ -15,12 +15,10 @@ function App() {
     //Fetch data from API
     const response = await fetch("http://localhost:3000/art");
     const books = await response.json();
-    const booksJSON = JSON.stringify(books, null, 2);
-    console.log(booksJSON);
 
     // Get the specific artwork
     let random = books.filter(work => work["recommended for"] == input.value);
-
+    console.log(random)
     //Set the state to be the selected artwork based on input name
     let newTitle = random[0].title;
     let newArtist = random[0].artist;
@@ -40,7 +38,7 @@ function App() {
     <>
       <div className="App">
       <h1>Hello Techtonica</h1>
-      <h2>Click the button to get a random book!</h2>
+      <h2>Click the button to get a random work of art!</h2>
         <input id="input" type="text" required></input>
       <div>
         <button onClick={fetchData} type="submit">

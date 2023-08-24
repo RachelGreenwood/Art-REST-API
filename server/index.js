@@ -1,24 +1,26 @@
 import express from 'express';
 import BOOKS from './art.js';
+import cors from 'cors';
 
 const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3000;
+app.use(cors());
 
 app.get('/art', (req, res) => {
-    console.log([BOOKS]);
-    res.json([BOOKS]);
+    console.log(BOOKS);
+    res.json(BOOKS);
   })
 
-app.get('/art/:isbn', (req, res) => {
-const { isbn } = req.params;
+app.get('/art/:id', (req, res) => {
+const { id } = req.params;
 console.log(req.params);
 
-const artwork = art.find(artwork => artwork.isbn === isbn);
-if(!artwork) {
-res.status(404).send("Sorry, I don't have that piece");
-}
-res.json(artwork);
+const artwork = BOOKS.find(artwork => artwork.id === id);
+    if(!artwork) {
+        res.status(404).send("Sorry, I don't have that piece");
+    }
+    res.json(artwork);
 })
 
 // User makes post request
@@ -37,13 +39,22 @@ res.json(artwork);
 // Return new item
 
 app.post('/art', (req, res) => {
-    let arr = art;
+    let arr = BOOKS;
     arr.push(req.body);
     res.json(arr);
   })
 
-app.put('/art', (req, res) => {
-    console.log(app.json)
+// app.put('/art', (req, res) => {
+//     console.log(req.params);
+//     let found = BOOKS.find(art => art.id === req.params.id);
+//     found = req.params;
+//     res.json(found);
+// })
+
+app.delete('/art', (req, res) => {
+    const { id } = req.params;
+    let deleted = BOOKS.filter((art) => art.id !== id)
+    res.json(deleted);
 })
 
 app.all('*', (req, res) => {
