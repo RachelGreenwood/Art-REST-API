@@ -2,7 +2,7 @@ const BOOKS = [{
     "id": "0",
     "title": "The Kiss",
     "artist": "Gustav Klimt",
-    "picture": "../client/src/assets/Paintings/The Kiss.jpeg",
+    "picture": "Paintings/The Kiss.jpeg",
     "date": "1907",
     "medium": "oil and gold leaf on canvas",
     "recommended for": "test"

@@ -44,12 +44,13 @@ app.post('/art', (req, res) => {
     res.json(arr);
   })
 
-// app.put('/art', (req, res) => {
-//     console.log(req.params);
-//     let found = BOOKS.find(art => art.id === req.params.id);
-//     found = req.params;
-//     res.json(found);
-// })
+app.put('/art', (req, res) => {
+    console.log(req.params);
+    console.log(req.body);
+    let found = BOOKS.find(art => art.id === req.body.id);
+    found = req.body;
+    res.json(found);
+})
 
 app.delete('/art', (req, res) => {
     const { id } = req.params;
