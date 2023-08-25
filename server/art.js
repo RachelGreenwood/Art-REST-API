@@ -108,12 +108,57 @@ const BOOKS = [{
 },
 {
     "id": "12",
-    "title": "Mere et Enfant (Mother and Child",
+    "title": "Mere et Enfant (Mother and Child)",
     "artist": "Pablo Picasso",
     "picture": "Paintings/MereEtEnfant.jpeg",
     "date": "1902",
     "medium": "oil on paper laid on canvas",
     "recommended for": "Whitney-Rene"
+},
+{
+    "id": "13",
+    "title": "The Death of Hyacinth (Ndey Buri Mboup)",
+    "artist": "Kehinde Wiley",
+    "picture": "Paintings/kehinde-wiley.webp",
+    "date": "2022",
+    "medium": "oil on canvas",
+    "recommended for": "Ariel"
+},
+{
+    "id": "14",
+    "title": "Happy 'Cause I'm Going Home",
+    "artist": "Leroy Allen",
+    "picture": "Paintings/LeroyAllen.jpeg",
+    "date": "1995",
+    "medium": "oil on canvas",
+    "recommended for": "Daaimah"
+},
+{
+    "id": "15",
+    "title": "The Two Fridas",
+    "artist": "Frida Kahlo",
+    "picture": "Paintings/The_Two_Fridas.jpg",
+    "date": "1939",
+    "medium": "oil on canvas",
+    "recommended for": "Yadira"
+},
+{
+    "id": "16",
+    "title": "Ballerina en Pointe",
+    "artist": "Edgar Degas",
+    "picture": "Paintings/Degas.jpeg",
+    "date": "1834-1917",
+    "medium": "pastel and watercolor on paper",
+    "recommended for": "Michelle"
+},
+{
+    "id": "17",
+    "title": "Sarah",
+    "artist": "",
+    "picture": "Paintings/Sarah.png",
+    "date": "",
+    "medium": "",
+    "recommended for": "Techtonica"
 }
 ]
 export default BOOKS;

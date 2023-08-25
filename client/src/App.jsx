@@ -39,6 +39,7 @@ function App() {
       <div className="App">
       <h1>Hello Techtonica</h1>
       <h2>Click the button to get a random work of art!</h2>
+      <p>Try: Rachel, Jia, Natalia, Cristina, Cathy, Janet, Samelia, Beyza, Destinee, Luke, Sarah, Whitney-Rene, Daaimah, Yadira, Michelle, or Techtonica</p>
         <input id="input" type="text" required></input>
       <div>
         <button onClick={fetchData} type="submit">
