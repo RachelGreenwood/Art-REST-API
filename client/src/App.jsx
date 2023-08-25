@@ -1,33 +1,53 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import SelectedArt from "./components/selectedArt";
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Initialize state for each element of an artwork
+  const [title, setTitle] = useState("");
+  const [artist, setArtist] = useState("");
+  const [picture, setPicture] = useState("");
+  const [date, setDate] = useState("");
+  const [medium, setMedium] = useState("");
+  const [rec, setRec] = useState("");
+
+  async function fetchData() {
+    //Fetch data from API
+    const response = await fetch("http://localhost:3000/art");
+    const books = await response.json();
+
+    // Get the specific artwork
+    let random = books.filter(work => work["recommended for"] == input.value);
+    console.log(random)
+    //Set the state to be the selected artwork based on input name
+    let newTitle = random[0].title;
+    let newArtist = random[0].artist;
+    let newPicture = random[0].picture;
+    let newDate = random[0].date;
+    let newMedium = random[0].medium;
+    let newRec = "Recommendation for: " + random[0]["recommended for"]
+    setTitle(newTitle);
+    setArtist(newArtist);
+    setPicture(newPicture);
+    setDate(newDate);
+    setMedium(newMedium);
+    setRec(newRec);
+  }
 
   return (
     <>
+      <div className="App">
+      <h1>Hello Techtonica</h1>
+      <h2>Click the button to get a random work of art!</h2>
+      <p>Try: Rachel, Jia, Natalia, Cristina, Cathy, Janet, Samelia, Beyza, Destinee, Luke, Sarah, Whitney-Rene, Daaimah, Yadira, Michelle, or Techtonica</p>
+        <input id="input" type="text" required></input>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={fetchData} type="submit">
+          Get an artwork
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <SelectedArt title={title} artist={artist} date={date} medium={medium} picture={picture} rec={rec} />
+    </div>
     </>
   )
 }
